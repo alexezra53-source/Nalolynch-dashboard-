@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Account Portal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h2>ACCOUNT PORTAL</h2>
+  <nav id="nav" hidden>
+    <button data-page="dashboard">Dashboard</button>
+    <button data-page="withdrawal">Withdrawal</button>
+    <button data-page="deposit">Deposit</button>
+    <button id="logout">Sign out</button>
+  </nav>
+</header>
+
+<main>
+
+<section id="login" class="page active">
+  <h1>Account Login</h1>
+  <form id="loginForm">
+    <label>Email address</label>
+    <input name="email" type="email" required>
+
+    <label>Password</label>
+    <input name="password" type="password" required>
+
+    <button class="primary">Login</button>
+  </form>
+  <p id="loginError"></p>
+</section>
+
+<section id="dashboard" class="page">
+  <h1>Account Dashboard</h1>
+  <h3>Welcome, <span id="clientName"></span></h3>
+
+  <div class="balance">
+    <p>Available Balance</p>
+    <h1 id="balance">$0.00</h1>
+    <button data-page="withdrawal">Withdrawal</button>
+    <button data-page="deposit">Deposit</button>
+  </div>
+</section>
+
+<section id="withdrawal" class="page">
+  <h1>Withdrawal Request</h1>
+
+  <form id="withdrawForm">
+    <label>Amount (USD)</label>
+    <input name="amount" type="number" min="0.01" step="0.01" required>
+
+    <label>Recipient Name</label>
+    <input name="recipientName" required>
+
+    <label>Bank Name</label>
+    <input name="bankName" required>
+
+    <label>Account Number</label>
+    <input name="accountNumber" required>
+
+    <label>Country</label>
+    <input name="country" required>
+
+    <button class="primary">Submit Withdrawal Request</button>
+  </form>
+
+  <p id="withdrawMessage"></p>
+</section>
+
+<section id="deposit" class="page">
+  <h1>Deposit</h1>
+  <p>
+    This service is currently unavailable, or you are not
+    currently authorized to use this service. Please contact
+    the administration for further assistance.
+  </p>
+  <button data-page="dashboard">Back to Dashboard</button>
+</section>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
